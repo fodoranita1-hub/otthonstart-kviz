@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otthon Start Jogosultsági Kvíz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="kviz-container">
+    <img src="logo.png" alt="Stabil Jövő logó" class="logo">
+    <h2>Jogosult vagy az Otthon Start hitelre?</h2>
+    <div class="progress-bar"><div class="progress-bar-fill" id="progress"></div></div>
+    <div id="questions">
+      <div class="kviz-question active" data-id="1">
+        <p>Volt saját lakástulajdonod az elmúlt 10 évben?</p>
+        <button onclick="nextQuestion(true)">Igen</button>
+        <button onclick="nextQuestion(false)">Nem</button>
+      </div>
+      <div class="kviz-question" data-id="2">
+        <p>Ha volt, az alábbi kivételek közül bármelyik igaz rád?<br>
+        - A lakás forgalmi értéke nem haladta meg a 15 millió Ft-ot<br>
+        - Haszonélvezeti jog volt rajta<br>
+        - A tulajdonrész kevesebb mint 50% volt</p>
+        <button onclick="nextQuestion(true)">Igen</button>
+        <button onclick="fail()">Nem</button>
+      </div>
+      <div class="kviz-question" data-id="3">
+        <p>Magyar állampolgár vagy jogszerű magyarországi tartózkodásod van?</p>
+        <button onclick="nextQuestion(true)">Igen</button>
+        <button onclick="fail()">Nem</button>
+      </div>
+      <div class="kviz-question" data-id="4">
+        <p>Legalább 2 év igazolható társadalombiztosítási jogviszonnyal vagy tanulói/hallgatói jogviszonnyal rendelkezel?</p>
+        <button onclick="nextQuestion(true)">Igen</button>
+        <button onclick="fail()">Nem</button>
+      </div>
+      <div class="kviz-question" data-id="5">
+        <p>Az elmúlt 180 napban aktív TB jogviszonyod volt?</p>
+        <button onclick="nextQuestion(true)">Igen</button>
+        <button onclick="fail()">Nem</button>
+      </div>
+      <div class="kviz-question" data-id="6">
+        <p>Büntetlen előéletű vagy?</p>
+        <button onclick="nextQuestion(true)">Igen</button>
+        <button onclick="fail()">Nem</button>
+      </div>
+      <div class="kviz-question" data-id="7">
+        <p>Van lejárt köztartozásod, amelyet nem tudsz 14 napon belül rendezni?</p>
+        <button onclick="fail()">Igen</button>
+        <button onclick="nextQuestion(true)">Nincs, vagy rendezem</button>
+      </div>
+      <div class="kviz-question" data-id="8">
+        <p>Fizettél vissza állami támogatást az elmúlt 3 évben?</p>
+        <button onclick="fail()">Igen</button>
+        <button onclick="nextQuestion(true)">Nem</button>
+      </div>
+      <div class="kviz-question" data-id="9">
+        <p>Az ingatlan megfelel az 1,5M Ft/m² feltételnek és lakható?</p>
+        <button onclick="nextQuestion(true)">Igen</button>
+        <button onclick="fail()">Nem</button>
+      </div>
+      <div class="kviz-question" data-id="10">
+        <p>Közeli hozzátartozódtól vásárolsz vagy építtetsz ingatlant?</p>
+        <button onclick="fail()">Igen</button>
+        <button onclick="success()">Nem</button>
+      </div>
+    </div>
+    <div class="result success" id="result-success">
+      ✅ Gratulálunk! Elvileg jogosult vagy az Otthon Start hitelre.<br>
+      👉 <a href="#osp_calc">Ugrás a kalkulátorhoz</a><br>
+      <a href="#" class="restart-btn" onclick="restartQuiz()">Újrakezdés</a>
+    </div>
+    <div class="result fail" id="result-fail">
+      ❌ Sajnos a megadott adatok alapján nem vagy jogosult a hitelprogramra.<br>
+      <a href="#" class="restart-btn" onclick="restartQuiz()">Újrakezdés</a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
